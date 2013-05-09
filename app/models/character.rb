@@ -5,7 +5,7 @@ class Character < ActiveRecord::Base
   
 
   validates :adventure_id, :name,  presence: true
-  validates :name, uniqueness: true
+  
 
 
 end

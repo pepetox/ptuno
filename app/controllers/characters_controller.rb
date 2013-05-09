@@ -7,8 +7,7 @@ class CharactersController < ApplicationController
       @character.user = current_user
       @character.save
       redirect_to adventure_path(@adventure)
-   end
-
+  end
   def destroy
     @adventure = Adventure.find(params[:adventure_id])
     @character = @adventure.characters.find(params[:id])
@@ -16,14 +15,15 @@ class CharactersController < ApplicationController
     redirect_to adventure_path(@adventure)
   end
   def index
-    @adventure = Adventure.find(params[:adventure_id])
-    @characters = @adventure.characters.all
-
+    if params[:adventure_id]
+      @adventure = Adventure.find(params[:adventure_id])
+      @characters = @adventure.characters.all
+    else
+      @characters = Character.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @adventures }
     end
   end
-
-
 end

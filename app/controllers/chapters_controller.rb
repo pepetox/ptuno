@@ -17,8 +17,12 @@ class ChaptersController < ApplicationController
   end
   
   def index
-    @adventure = Adventure.find(params[:adventure_id])
-    @chapters = @adventure.chapters.all
+    if params[:adventure_id]
+      @adventure = Adventure.find(params[:adventure_id])
+      @chapters = @adventure.chapters.all
+    else
+      @chapters = Chapter.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,3 +30,4 @@ class ChaptersController < ApplicationController
     end
   end
 end
+

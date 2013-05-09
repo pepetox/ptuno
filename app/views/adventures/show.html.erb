@@ -26,51 +26,23 @@
           <% end %>
       </p>        
       <p><b>Protagonizada por: </b></p>
-      <ol>
+      <ul>
           <% @adventure.characters.each do |char| %>
-            <li><b><%= char.name %></b></li></p>   
+            <li><b><%= link_to char.name, char %></b></li></p>   
           <% end %>
-      </ol>
+      </ul>
     
 
 
     <h2>Diario de la aventura</h2>
-    <% @adventure.chapters.each do |chapter| %>
-        <h4><b><%= chapter.name %></b></h4>
+    <ol>
+      <% @adventure.chapters.each do |chapter| %>
+        <h4><li><b><%= link_to chapter.name, chapter %></b></li></h4>
         <p><%= chapter.body %></p>
-        <h3>Commentarios</h3>
-        <% chapter.comments.each do |comment| %>
-              <p>
-                <b>Autor:</b>
-                <%= comment.user.email %>
-              </p>
-              <p>
-                <b>Comentario:</b>
-                <%= comment.body %>
-              </p>
-               <%= link_to 'Destroy Comment', [comment.movie, comment],
-                           :confirm => 'Are you sure?',
-                           :method => :delete %>
-        <% end %>
-        <h3>Añade un comentario a esta entrada en el diario:</h3>
-        <%= form_for([@adventure, chapter, chapter.comments.build]) do |f| %>
-                   
-                    <div class="field">
-                      <%= f.label :body %><br />
-                      <%= f.text_area :body, :size => "5x10"  %>
-                    </div>
-
-
-
-
-                    <div class="actions">
-                      <%= f.submit %>
-                    </div>
-                  <% end %>
+    </ol>    
     <% end %>
-    
+    <%= link_to 'Volver', adventures_path %>
     </div>
-
       <div class="span3">
         <h3>Añade una entrada en el diario:</h3>
         <%= form_for([@adventure, @adventure.chapters.build]) do |f| %>
@@ -86,7 +58,7 @@
               <%= f.submit %>
             </div>
         <% end %>
-        <p>Añade una personaje a la aventura :</p>
+        <h3>Añade una personaje a la aventura :</h3>
             <%= form_for([@adventure, @adventure.characters.build]) do |f| %>
               <div class="field">
                 <%= f.label :name %><br />
