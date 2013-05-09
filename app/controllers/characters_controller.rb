@@ -15,4 +15,15 @@ class CharactersController < ApplicationController
     @character.destroy
     redirect_to adventure_path(@adventure)
   end
+  def index
+    @adventure = Adventure.find(params[:adventure_id])
+    @characters = @adventure.characters.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @adventures }
+    end
+  end
+
+
 end

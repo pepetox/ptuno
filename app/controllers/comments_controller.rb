@@ -4,7 +4,8 @@ class CommentsController < ApplicationController
   
   
   def create
-      @chapter = Chapter.find(params[:chapter_id])
+      @adventure = Adventure.find(params[:adventure_id])
+      @chapter = @adventure.chapters.find(params[:chapter_id])
       @comment = @chapter.comments.create(params[:comment])
       @comment.user = current_user
       @comment.save

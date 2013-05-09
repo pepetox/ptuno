@@ -10,9 +10,19 @@ class ChaptersController < ApplicationController
    end
 
   def destroy
-    @adventure = Adventure.find(params[:adventure_id])
-    @chapter = @adventure.chapters.find(params[:id])
+    
+    @chapter = Chapter.find(params[:id])
     @chapter.destroy
-    redirect_to adventure_path(@adventure)
+    redirect_to adventure_path
+  end
+  
+  def index
+    @adventure = Adventure.find(params[:adventure_id])
+    @chapters = @adventure.chapters.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @adventures }
+    end
   end
 end

@@ -14,6 +14,10 @@ Ptuno::Application.routes.draw do
     end
   end
 
+  resources :characters
+  resources :comments
+  resources :chapters
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
