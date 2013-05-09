@@ -1,0 +1,31 @@
+<h1>Listado de aventuras</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Nombre</th>
+    <th>Sistema</th>
+    <th>Descripción</th>
+    <th>Master</th>
+    <th>En curso</th>
+  
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @adventures.each do |adventure| %>
+  <tr>
+    <td><%= link_to adventure.name, adventure %></td>
+    <td><%= adventure.system %></td>
+    <td><%= adventure.description %></td>
+    <td><%= adventure.mc %></td>
+    <td><%= adventure.playing %></td>
+    <td><%= link_to 'Show', adventure %></td>
+    <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
+    <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva aventura', new_adventure_path %>

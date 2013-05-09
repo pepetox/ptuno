@@ -1,0 +1,108 @@
+<h1><%= @adventure.name %></h1>
+
+<p>
+  <b>Sistema de juego: </b>
+  <%= @adventure.system %>
+</p>
+
+<p>
+  <b>Descriptión:</b>
+  <%= @adventure.description %>
+</p>
+
+<p>
+  <b>Maestro de ceremonias:</b>
+  <%= @adventure.mc %>
+</p>
+
+<p>
+  <b>Estado de la partida: </b>
+  <% if @adventure.playing? %>
+     jugando 
+  <% else %>
+     terminada 
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_adventure_path(@adventure) %> |
+<%= link_to 'Back', adventures_path %>
+
+<h2>Personajes</h2>
+<% @adventure.characters.each do |char| %>
+  <p>
+    <b>name:</b>
+    <%= char.name %>
+     
+  </p>
+ 
+  <p>
+    <b>Historia:</b>
+    <%= char.history %>
+  </p>
+
+   
+<% end %>
+<h3>Añade una personaje a la aventura :</h3>
+<%= form_for([@adventure, @adventure.characters.build]) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :history %><br />
+    <%= f.text_field :history %>
+  </div>
+  <div class="field">
+    <%= f.label :pj %><br />
+    <%= f.check_box :pj %>
+  </div>
+  <div class="field">
+    <%= f.label :alive %><br />
+    <%= f.check_box :alive %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+
+<h2>Capitulos</h2>
+<% @adventure.chapters.each do |chapter| %>
+  <p>
+    <b>Nombre:</b>
+    <%= chapter.name %>
+  </p>
+  <p>
+    <b>Diario:</b>
+    <%= chapter.body %>
+  </p>
+ 
+<% end %>
+
+<h3>Añade una entrada en el diario:</h3>
+<%= form_for([@adventure, @adventure.chapters.build]) do |f| %>
+ 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :size => "5x10"  %>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

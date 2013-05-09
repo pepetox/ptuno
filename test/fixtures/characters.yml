@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  adventure_id: 1
+  name: MyString
+  history: MyString
+  pj: false
+  alive: false
+  user_id: 1
+
+two:
+  adventure_id: 1
+  name: MyString
+  history: MyString
+  pj: false
+  alive: false
+  user_id: 1
