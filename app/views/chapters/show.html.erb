@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Adventure:</b>
+  <b>Aventure:</b>
   <%= @chapter.adventure.name %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>Título:</b>
   <%= @chapter.name %>
 </p>
 
 <p>
-  <b>Body:</b>
+  <b>Contenido:</b>
   <%= @chapter.body %>
 </p>
 
 
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to 'Editar', edit_chapter_path(@chapter) %> |
+<%= link_to 'Vovler', chapters_path %>

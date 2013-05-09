@@ -13,7 +13,7 @@ class ChaptersController < ApplicationController
     
     @chapter = Chapter.find(params[:id])
     @chapter.destroy
-    redirect_to adventure_path
+    redirect_to chapters_path
   end
   
   def index
@@ -28,6 +28,17 @@ class ChaptersController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @adventures }
     end
+  end
+  def show
+    @chapter = Chapter.find(params[:id])    
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @adventures }
+    end
+  end
+  def edit
+    @chapter = Chapter.find(params[:id])
   end
 end
 

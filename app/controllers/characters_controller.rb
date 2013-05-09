@@ -9,10 +9,10 @@ class CharactersController < ApplicationController
       redirect_to adventure_path(@adventure)
   end
   def destroy
-    @adventure = Adventure.find(params[:adventure_id])
-    @character = @adventure.characters.find(params[:id])
+    
+    @character = Character.find(params[:id])
     @character.destroy
-    redirect_to adventure_path(@adventure)
+    redirect_to characters_path
   end
   def index
     if params[:adventure_id]
@@ -25,5 +25,16 @@ class CharactersController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @adventures }
     end
+  end
+  def show
+    @character = Character.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @adventure }
+    end
+  end
+  def edit
+    @character = Character.find(params[:id])
   end
 end

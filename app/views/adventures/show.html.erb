@@ -3,7 +3,7 @@
       <div class="span9">
       <h1><%= link_to @adventure.name, @adventure %></h1>
         <% if current_user.try(:admin?)%>
-            <%= link_to 'Edita la partida', edit_adventure_path(@adventure) %> 
+            <%= link_to 'Editar la partida', edit_adventure_path(@adventure) %> 
         <% end %>
       <p>
           <b>Sistema de juego: </b>
@@ -47,11 +47,11 @@
         <h3>Añade una entrada en el diario:</h3>
         <%= form_for([@adventure, @adventure.chapters.build]) do |f| %>
             <div class="field">
-              <%= f.label :name %><br />
+              <%= f.label "Título" %><br />
               <%= f.text_field :name %>
             </div>
             <div class="field">
-              <%= f.label :body %><br />
+              <%= f.label "Contenido" %><br />
               <%= f.text_area :body, :size => "5x10"  %>
             </div>
             <div class="actions">
@@ -61,19 +61,19 @@
         <h3>Añade una personaje a la aventura :</h3>
             <%= form_for([@adventure, @adventure.characters.build]) do |f| %>
               <div class="field">
-                <%= f.label :name %><br />
+                <%= f.label "Nombre" %><br />
                 <%= f.text_field :name %>
               </div>
               <div class="field">
-                <%= f.label :history %><br />
+                <%= f.label "Historia" %><br />
                 <%= f.text_field :history %>
               </div>
               <div class="field">
-                <%= f.label :pj %><br />
+                <%= f.label "¿Es pj?" %><br />
                 <%= f.check_box :pj %>
               </div>
               <div class="field">
-                <%= f.label :alive %><br />
+                <%= f.label "¿Esta vivo?" %><br />
                 <%= f.check_box :alive %>
               </div>
               <div class="field">

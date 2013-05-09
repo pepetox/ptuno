@@ -6,7 +6,7 @@
     <th>Sistema</th>
     <th>Descripción</th>
     <th>Master</th>
-    <th>En curso</th>
+    <th>Estado</th>
     <% if current_user.try(:admin?)%>
     <th></th>
     <th></th>
@@ -19,10 +19,14 @@
     <td><%= adventure.system %></td>
     <td><%= adventure.description %></td>
     <td><%= adventure.mc %></td>
-    <td><%= adventure.playing %></td>
+    <% if adventure.playing? %>
+        <td> Aventura en curso </td>
+        <%else%>
+        <td> Aventura finalizada </td>
+        <%end%>
     <% if current_user.try(:admin?)%>
-      <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
-      <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Editar', edit_adventure_path(adventure) %></td>
+      <td><%= link_to 'Borrar', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>  
   </tr>
 <% end %>

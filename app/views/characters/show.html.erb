@@ -1,35 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Adventure:</b>
-  <%= @character.adventure_id %>
+  <b>Aventura:</b>
+  <%= @character.adventure.name %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>Nombre:</b>
   <%= @character.name %>
 </p>
 
 <p>
-  <b>History:</b>
+  <b>Historia:</b>
   <%= @character.history %>
 </p>
 
 <p>
-  <b>Pj:</b>
+  <b>Es PJ:</b>
   <%= @character.pj %>
 </p>
 
 <p>
-  <b>Alive:</b>
+  <b>Esta vivo:</b>
   <%= @character.alive %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>Código de usuario</b>
   <%= @character.user_id %>
 </p>
 
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<%= link_to 'Editar', edit_character_path(@character) %> |
+<%= link_to 'Volver', characters_path %>
