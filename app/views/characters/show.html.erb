@@ -9,7 +9,7 @@
   <%= link_to @character.name, @character%>
 </h2>
 <p>
-  <% if @character.imglink != nil %>
+  <% if @character.imglink != "" %>
     <%= image_tag @character.imglink, :size => "400x400" %> 
   <% end %>
   <% if @character.photo.url != "missing.png" %>

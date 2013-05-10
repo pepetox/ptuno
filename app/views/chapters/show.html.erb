@@ -9,7 +9,7 @@
   <%= link_to @chapter.name, @chapter %>
 </h2>
 <p>
-    <% if @chapter.imglink != nil %>
+    <% if @chapter.imglink != "" %>
       <%= image_tag @chapter.imglink, :size => "400x400" %> 
     <% end %>
  	<% if @chapter.photo.url != "missing.png" %>

@@ -6,8 +6,8 @@ class AdventuresController < ApplicationController
 
   def index
     @adventures = Adventure.all
-
-    respond_to do |format|
+    
+      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @adventures }
     end
@@ -17,6 +17,7 @@ class AdventuresController < ApplicationController
   # GET /adventures/1.json
   def show
     @adventure = Adventure.find(params[:id])
+    @adventure.chapters.sort_by &:created_at
 
     respond_to do |format|
       format.html # show.html.erb
