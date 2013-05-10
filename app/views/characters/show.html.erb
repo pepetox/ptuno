@@ -1,15 +1,17 @@
 
 
-<p>
-  <b>Aventura:</b>
-  <%= @character.adventure.name %>
-</p>
+<h1>    
+  <%= link_to @character.adventure.name, @character.adventure %>
+  
+</h1>
 
+<h2>
+  <%= link_to @character.name, @character%>
+</h2>
 <p>
-  <b>Nombre:</b>
-  <%= @character.name %>
-</p>
-<p>
+  <% if @character.imglink != nil %>
+    <%= image_tag @character.imglink, :size => "400x400" %> 
+  <% end %>
   <% if @character.photo.url != "missing.png" %>
     <%= image_tag @character.photo.url, :size => "500x500" %> 
   <% end %>  

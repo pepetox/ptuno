@@ -7,6 +7,9 @@
             <%= link_to 'Editar la partida', edit_adventure_path(@adventure) %> 
         <% end %>
       <p>
+        <% if @adventure.imglink != nil %>
+          <%= image_tag @adventure.imglink, :size => "400x400" %> 
+        <% end %>        
         <% if @adventure.photo.url != "missing.png" %>
           <%= image_tag @adventure.photo.url, :size => "400x400" %> 
         <% end %>
@@ -64,6 +67,11 @@
               <%= f.label "Selecione una foto:" %>
               <%= f.file_field :photo %>
             </div>
+            <div class="field">
+              <%= f.label "Enlace a foto" %><br />
+              <%= f.text_field :imglink %>
+            </div>
+
             <div class="actions">
               <%= f.submit %>
             </div>
@@ -90,6 +98,10 @@
               <div class="field">
                 <%= f.label "Selecione una foto:" %>
                 <%= f.file_field :photo %>
+              </div>
+              <div class="field">
+                <%= f.label "Enlace a foto" %><br />
+                <%= f.text_field :imglink %>
               </div>
               <div class="field">
                 <%= f.label :user_id %><br />

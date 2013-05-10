@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509231247) do
+ActiveRecord::Schema.define(:version => 20130510094453) do
 
   create_table "adventures", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130509231247) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "imglink"
   end
 
   create_table "chapters", :force => true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130509231247) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "imglink"
   end
 
   create_table "characters", :force => true do |t|
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130509231247) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "imglink"
   end
 
   create_table "comments", :force => true do |t|

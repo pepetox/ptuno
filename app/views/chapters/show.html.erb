@@ -1,14 +1,17 @@
 
 <h1>  	
+  <%= link_to @chapter.adventure.name, @chapter.adventure %>
   
-  <%= @chapter.adventure.name %>
 </h1>
 
 <h2>
   <b>Título:</b>
-  <%= @chapter.name %>
+  <%= link_to @chapter.name, @chapter %>
 </h2>
 <p>
+    <% if @chapter.imglink != nil %>
+      <%= image_tag @chapter.imglink, :size => "400x400" %> 
+    <% end %>
  	<% if @chapter.photo.url != "missing.png" %>
 		<%= image_tag @chapter.photo.url, :size => "500x500" %> 
 	<% end %>  

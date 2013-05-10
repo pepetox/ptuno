@@ -1,6 +1,6 @@
 <h1>Listado de capitulos</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Adventure</th>
     <th>Name</th>
@@ -15,7 +15,7 @@
 
 <% @chapters.each do |chapter| %>
   <tr>
-    <td><%= chapter.adventure_id %></td>
+    <td><%= link_to chapter.adventure.name, chapter.adventure  %></td>
     <td><%= link_to chapter.name, chapter %></td>
     <td><%= chapter.body %></td>
     <td><%= link_to 'Ver', chapter %></td>
