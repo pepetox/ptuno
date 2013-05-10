@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Aventura:</b>
@@ -8,6 +8,11 @@
 <p>
   <b>Nombre:</b>
   <%= @character.name %>
+</p>
+<p>
+  <% if @character.photo.url != "missing.png" %>
+    <%= image_tag @character.photo.url, :size => "500x500" %> 
+  <% end %>  
 </p>
 
 <p>
@@ -32,4 +37,4 @@
 
 
 <%= link_to 'Editar', edit_character_path(@character) %> |
-<%= link_to 'Volver', characters_path %>
+<%= link_to 'Volver', adventure_path(@character.adventure) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509162007) do
+ActiveRecord::Schema.define(:version => 20130509231247) do
 
   create_table "adventures", :force => true do |t|
     t.string   "name"
@@ -19,16 +19,24 @@ ActiveRecord::Schema.define(:version => 20130509162007) do
     t.text     "description"
     t.string   "mc"
     t.boolean  "playing"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "chapters", :force => true do |t|
     t.integer  "adventure_id"
     t.string   "name"
     t.string   "body"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "characters", :force => true do |t|
@@ -38,8 +46,12 @@ ActiveRecord::Schema.define(:version => 20130509162007) do
     t.boolean  "pj"
     t.boolean  "alive"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "comments", :force => true do |t|

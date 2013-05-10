@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Muestra', @chapter %> |
-<%= link_to 'Volver', chapters_path %>
+<%= link_to 'Volver', adventure_path(@chapter.adventure) %>

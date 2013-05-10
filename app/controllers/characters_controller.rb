@@ -8,6 +8,19 @@ class CharactersController < ApplicationController
       @character.save
       redirect_to adventure_path(@adventure)
   end
+  def update
+    @character = Character.find(params[:id])
+
+    respond_to do |format|
+      if @character.update_attributes(params[:character])
+        format.html { redirect_to @character, notice: 'character was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @character.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   def destroy
     
     @character = Character.find(params[:id])

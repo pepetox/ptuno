@@ -7,7 +7,20 @@ class ChaptersController < ApplicationController
       @chapter.user = current_user
       @chapter.save
       redirect_to adventure_path(@adventure)
-   end
+  end
+  def update
+    @chapter = Chapter.find(params[:id])
+
+    respond_to do |format|
+      if @chapter.update_attributes(params[:chapter])
+        format.html { redirect_to @chapter, notice: 'chapter was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def destroy
     
@@ -26,7 +39,7 @@ class ChaptersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @adventures }
+      format.json { render json: @chapters }
     end
   end
   def show

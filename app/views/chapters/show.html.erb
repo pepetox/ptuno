@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Aventure:</b>
+<h1>  	
+  
   <%= @chapter.adventure.name %>
-</p>
+</h1>
 
-<p>
+<h2>
   <b>Título:</b>
   <%= @chapter.name %>
-</p>
-
+</h2>
 <p>
-  <b>Contenido:</b>
+ 	<% if @chapter.photo.url != "missing.png" %>
+		<%= image_tag @chapter.photo.url, :size => "500x500" %> 
+	<% end %>  
+</p>
+<p>
+  
   <%= @chapter.body %>
 </p>
 
 
 <%= link_to 'Editar', edit_chapter_path(@chapter) %> |
-<%= link_to 'Vovler', chapters_path %>
+<%= link_to 'Volver', adventure_path(@chapter.adventure) %>
