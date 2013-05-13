@@ -64,10 +64,7 @@
               <%= f.label "Contenido" %><br />
               <%= f.text_area :body, :size => "5x10"  %>
             </div>
-            <div class="field">
-              <%= f.label "Selecione una foto:" %>
-              <%= f.file_field :photo %>
-            </div>
+
             <div class="field">
               <%= f.label "Enlace a foto" %><br />
               <%= f.text_field :imglink %>
@@ -95,10 +92,6 @@
               <div class="field">
                 <%= f.label "¿Esta vivo?" %>
                 <%= f.check_box :alive %>
-              </div>
-              <div class="field">
-                <%= f.label "Selecione una foto:" %>
-                <%= f.file_field :photo %>
               </div>
               <div class="field">
                 <%= f.label "Enlace a foto" %><br />

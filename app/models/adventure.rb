@@ -3,8 +3,8 @@ class Adventure < ActiveRecord::Base
   has_attached_file :photo, :default_url => "missing.png",
                     :url  => "/assets/products/:id/:style/:basename.:extension",
                   	:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
-  has_many :chapters
-  has_many :characters
+  has_many :chapters, :dependent => :destroy
+  has_many :characters, :dependent => :destroy
 
   validates :description, :name, :system,  presence: true
   validates :name, uniqueness: true
