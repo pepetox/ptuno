@@ -7,5 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 user= User.find_by_email("manuelrh@gmail.com")
-user.destroy
+user.admin=true
+user.save
 
