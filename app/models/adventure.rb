@@ -6,6 +6,8 @@ class Adventure < ActiveRecord::Base
   has_many :chapters, :dependent => :destroy
   has_many :characters, :dependent => :destroy
 
+  
+
   validates :description, :name, :system,  presence: true
   validates :name, uniqueness: true
   validates_length_of :imglink, :in => 1..200, :allow_blank => true

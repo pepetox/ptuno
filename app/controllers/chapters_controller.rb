@@ -1,6 +1,8 @@
 class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
+  before_filter :authenticate_user!
+  
   def create
       @adventure = Adventure.find(params[:adventure_id])
       @chapter = @adventure.chapters.create(params[:chapter])

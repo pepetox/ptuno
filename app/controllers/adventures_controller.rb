@@ -2,7 +2,7 @@ class AdventuresController < ApplicationController
   # GET /adventures
   # GET /adventures.json
 
-  
+  before_filter :authenticate_user!
 
   def index
     @adventures = Adventure.all
