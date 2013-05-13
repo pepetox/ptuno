@@ -15,7 +15,8 @@
 
 <% @chapters.each do |chapter| %>
   <tr>
-    <td><%= link_to chapter.adventure.name, chapter.adventure  %></td>
+   
+    <td><%= chapter.adventure_id  %></td>
     <td><%= link_to chapter.name, chapter %></td>
     <td><%= chapter.body %></td>
     <td><%= link_to 'Ver', chapter %></td>

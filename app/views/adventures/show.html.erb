@@ -38,6 +38,7 @@
       <ul>
           <% @adventure.characters.each do |char| %>
             <li><b><%= link_to char.name, char %></b></li></p>   
+            <%= link_to 'Borrar', char, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
       </ul>
     
