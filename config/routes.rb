@@ -6,6 +6,8 @@ Ptuno::Application.routes.draw do
 
 
   get "main/index"
+  get "main/test"
+
 
   devise_for :users
 

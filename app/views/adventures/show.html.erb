@@ -33,20 +33,25 @@
           <% end %>
       </p>        
       <p><b>Protagonizada por: </b></p>
-      <ul>
-          <% @adventure.characters.each do |char| %>
-            <li><b><%= link_to char.name, char %></b></li></p>   
-          <% end %>
-      </ul>
+      <%= link_to "ver u ocultar",#,
+      <div id"jugadores">
+          <ul>
+              <% @adventure.characters.each do |char| %>
+                <li><b><%= link_to char.name, char %></b></li></p>   
+              <% end %>
+          </ul>
+      </div>
 
     <h2>
           <%= link_to "Archivos de la aventura", adventure_docs_path(@adventure) %>
     </h2>  
+    
         <ul>
           <% @adventure.docs.each do |doc| %>
             <li><b><%= link_to doc.name, doc %></b></li></p>               
           <% end %>
       </ul>
+    
     <p>  
           <%= link_to 'Crear un nuevo documento', new_adventure_doc_path(@adventure) %>
     </p>      
@@ -58,7 +63,7 @@
     <ol>
       <% @adventure.chapters.each do |chapter| %>
         <li><h4><b><%= link_to chapter.name, chapter %></b></li></h4>
-        <p><%= chapter.body %></p>
+        <p><%= chapter.body.html_safe %></p>
     <% end %>
     </ol> 
     <%= link_to 'Volver', adventures_path %>

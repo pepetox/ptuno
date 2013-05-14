@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+      <div class="span9">
+        <h1> zona de testing </h1>
+
+        <h3>varios links :</h3>
+
+          <%= link_to "ver documentos", adventure_docs_path(@adventure) %><br/>
+          <%= link_to "ver un un documento", adventure_doc_path(@adventure,@adventure.characters.first) %><br/>
+          <%= link_to "editar un documento", edit_adventure_doc_path(@adventure,@adventure.characters.first) %><br/>
+          <%= link_to 'Borrar un documento', @adventure.docs.first, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+          <%= link_to 'Crear un documento', new_adventure_doc_path(@adventure) %><br/>
+          <%= link_to 'Crear Nueva aventura', new_adventure_path %>
+
+        <h3>jugando con javascript</h3>  
+           <input type="button" value="Alerta" onclick="alert('Esta es una alerta!');" />
+           <input type="button" value="Escribir" onclick="document.write('<p>Una alerta por escrito</p>');" />
+           <input type="checkbox" value="Click" onclick="javascript:alert('Esta es una alerta!');" />
+           <input type="text" value="Escribe algo" onfocus="alert('Hey que quieres escribir aqui');" />
+           <a href="javascript:alert('Esta es una alerta!');">Vinculo a una alerta</a>
+           <a href="javascript:window.print();">Imprimir esta página</a>
+           <a href="javascript:window.location.reload();">Refrescar la página</a>
+           <body onload="hola();">
+            <script type="text/javascript">
+            function hola() {
+            alert('Ola q ase!');}
+            </script>
+            <h2>confirm</h2>
+                  <script type="text/javascript">
+                  function confirmacion() {
+                  var pregunta = confirm("Salir de esta página?")
+                  if (pregunta){
+                  alert("Adios!")
+                  window.location = "http://www.google.com/";
+                  }
+                  else{
+                  alert("Gracias por permanecer en la página!")
+                  }
+                  }
+                  </script>
+                  <input type="button" onclick=" confirmacion()" value="Salir de la página" />
+
+            <h2>Promnt</h2>
+                  <script type="text/javascript">
+                  function prompter() {
+                  var reply = prompt("Buenas, cual es tu nombre?", "")
+                  alert ( "Es un gusto tenerte aquí " + reply + "!")
+                  }
+                  </script>
+                  <input type="button" onclick="prompter()" value="Di tu nombre!" />
+                  //Esta simple línea del código es un comentario
+            <h2>Ejemplos prácticos del uso de Javascript</h2>      
+                  <a href= "javascript:aa = window.open('','new','width=400,height=400,left=50,top=50');open=aa;void 0">Abrir una ventana en blanco</a>
+                  <a href= "javascript:aa.document.write('<h1>Esto es escrito por la ventana principal</h1>');">Escribir texto en la ventana</a>
+                  <a href="javascript:aa.close()">Cerrar Ventana</a>
+
+            <h2>Escondiendo texto</h2>   
+            <button>toggle the div</button>
+            <div> hola hola </div>
+             
+            <script>
+            $( "button" ).click(function() {
+              $( "div" ).toggle( "fold", 1000 );
+            });
+            </script>
+            
+            
+
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
