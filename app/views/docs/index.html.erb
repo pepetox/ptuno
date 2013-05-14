@@ -28,14 +28,14 @@
 <% end %>
 </table>
 <br />
-
+ <% if params[:adventure_id] %>
  <%= link_to 'Crear un nuevo documento', new_adventure_doc_path(@adventure) %><br />
-
+ <% end %>
 
 <% @docs.each do |doc| %>
 <% if doc.gdoclink != ""%>
 <h3><%= doc.name %></h3>
-<iframe width="900" height="720" src=<%= doc.gdoclink%></iframe>
+<iframe width="720" height="720" src=<%= doc.gdoclink%></iframe>
 <% end %>
 <% end %>
 
