@@ -1,0 +1,34 @@
+
+<h1>
+  
+  <%= link_to @doc.adventure.name, @doc.adventure  %>
+</h1>
+
+<h2>
+  
+  <%= @doc.name %>
+</h2>
+
+<p>
+ 
+  <%= @doc.history %>
+</p>
+
+<p>
+  <b>link a la imagen:</b>
+  <%= @doc.imglink %>
+</p>
+
+<p>
+  <b>Gdoclink:</b>
+  <%= @doc.gdoclink %>
+</p>
+<% if @doc.gdoclink != ""%>
+
+<iframe width="900" height="720" src=<%= @doc.gdoclink%></iframe>
+<% end %>
+
+
+
+<%= link_to 'Editar', edit_doc_path(@doc) %> |
+<%= link_to 'Volver', docs_path %>

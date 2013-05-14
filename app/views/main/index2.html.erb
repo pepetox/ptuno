@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+      <div class="span9">
+      	<h1>En una galaxia muy muy futura...</h1>
+
+
+      	<%= link_to image_tag("wanderlogo.jpg"), adventures_path  %>
+
+          <h3> zona de testing </h3>
+
+        <h3>varios links :</h3>
+
+          <%= link_to "ver documentos", adventure_docs_path(@adventure) %><br/>
+          <%= link_to "ver un un documento", adventure_doc_path(@adventure,@adventure.characters.first) %><br/>
+          <%= link_to "editar un documento", edit_adventure_doc_path(@adventure,@adventure.characters.first) %><br/>
+          <%= link_to 'Borrar un documento', @adventure.docs.first, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+          <%= link_to 'Crear un documento', new_adventure_doc_path(@adventure) %><br/>
+          <%= link_to 'Crear Nueva aventura', new_adventure_path %>
+
+
+           
+
+
+
+
+
+
+
+
+      </div>
+      <div class="span3">
+        <h2>Ultimos cambios</h2>
+          Incluido manu como administrador<br/>
+          Retirada la opción de subir archivos que fallaba <br/>
+          Necesario estar logeado para ver la web<br/>
+          
+
+
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -2,6 +2,9 @@ Ptuno::Application.routes.draw do
 
 
 
+  resources :docs
+
+
   get "main/index"
 
   devise_for :users
@@ -9,6 +12,7 @@ Ptuno::Application.routes.draw do
 
   resources :adventures do
     resources :characters
+    resources :docs
     resources :chapters do
       resources :comments
     end

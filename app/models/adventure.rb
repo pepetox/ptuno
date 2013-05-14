@@ -5,6 +5,7 @@ class Adventure < ActiveRecord::Base
                   	:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
   has_many :chapters, :dependent => :destroy
   has_many :characters, :dependent => :destroy
+  has_many :docs, :dependent => :destroy
 
   
 

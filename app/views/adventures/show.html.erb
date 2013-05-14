@@ -36,9 +36,21 @@
       <ul>
           <% @adventure.characters.each do |char| %>
             <li><b><%= link_to char.name, char %></b></li></p>   
-            <%= link_to 'Borrar', char, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
       </ul>
+
+    <h2>
+          <%= link_to "Archivos de la aventura", adventure_docs_path(@adventure) %>
+    </h2>  
+        <ul>
+          <% @adventure.docs.each do |doc| %>
+            <li><b><%= link_to doc.name, doc %></b></li></p>               
+          <% end %>
+      </ul>
+    <p>  
+          <%= link_to 'Crear un nuevo documento', new_adventure_doc_path(@adventure) %>
+    </p>      
+    
     
 
 

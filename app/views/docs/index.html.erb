@@ -1,0 +1,43 @@
+<h1>Listing docs</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Adventure</th>
+    <th>Name</th>
+    <th>History</th>
+    <th>imagen</th>
+    <th>Gdoclink</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @docs.each do |doc| %>
+  <tr>
+    <td><%=  link_to doc.adventure.name, doc.adventure %></td>
+    <td><%= doc.name %></td>
+    <td><%= doc.history %></td>
+    <td><%= doc.imglink %></td>
+    <td><%= doc.gdoclink %></td>
+    <td><%= doc.user_id %></td>
+    <td><%= link_to 'Show', doc %></td>
+    <td><%= link_to 'Edit', edit_doc_path(doc) %></td>
+    <td><%= link_to 'Destroy', doc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+ <%= link_to 'Crear un nuevo documento', new_adventure_doc_path(@adventure) %><br />
+
+
+<% @docs.each do |doc| %>
+<% if doc.gdoclink != ""%>
+<h3><%= doc.name %></h3>
+<iframe width="900" height="720" src=<%= doc.gdoclink%></iframe>
+<% end %>
+<% end %>
+
+
+

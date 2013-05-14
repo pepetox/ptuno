@@ -1,0 +1,33 @@
+<%= form_for([@adventure, @doc]) do |f| %>
+  <% if @doc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
+
+      <ul>
+      <% @doc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Nombre del archivo" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Descipción" %><br />
+    <%= f.text_area :history %>
+  </div>
+  <div class="field">
+    <%= f.label "Link a la imagen" %><br />
+    <%= f.text_field :imglink %>
+  </div>
+  <div class="field">
+    <%= f.label "link al documento gdocs" %><br />
+    <%= f.text_field :gdoclink %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
