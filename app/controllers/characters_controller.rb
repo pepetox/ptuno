@@ -11,6 +11,17 @@ class CharactersController < ApplicationController
       @character.save
       redirect_to adventure_path(@adventure)
   end
+  def new
+    
+    @adventure = Adventure.find(params[:adventure_id])
+    @character = @adventure.characters.new
+    @character.adventure.id = @adventure.id
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @character }
+    end
+  end
   def update
     @character = Character.find(params[:id])
 

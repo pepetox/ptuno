@@ -10,6 +10,17 @@ class ChaptersController < ApplicationController
       @chapter.save
       redirect_to adventure_path(@adventure)
   end
+  def new
+    
+    @adventure = Adventure.find(params[:adventure_id])
+    @chapter = @adventure.chapters.new
+    @chapter.adventure.id = @adventure.id
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @chapter }
+    end
+  end
   def update
     @chapter = Chapter.find(params[:id])
 

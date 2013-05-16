@@ -1,5 +1,7 @@
-<div class="container">
-    <div class="row">
+<div class="container-fluid">
+
+  
+    <div class="row-fluid">
       <div class="span9">
         <h1> zona de testing </h1>
 
@@ -54,15 +56,16 @@
                   <a href= "javascript:aa.document.write('<h1>Esto es escrito por la ventana principal</h1>');">Escribir texto en la ventana</a>
                   <a href="javascript:aa.close()">Cerrar Ventana</a>
 
-            <h2>Escondiendo texto</h2>   
-            <button>toggle the div</button>
-            <div> hola hola </div>
-             
-            <script>
-            $( "button" ).click(function() {
-              $( "div" ).toggle( "fold", 1000 );
-            });
-            </script>
+
+
+                  <div id="capa" style="padding: 10px; background-color: #ff8800;">Pon el ratón encima de esta capa</div>
+                  <br>
+                  <div id="mensaje" style="display: none;">Has puesto el ratón encima!! <br>(Ahora quítalo de la capa)</div>
+                  
+
+
+
+  
             
             
 
