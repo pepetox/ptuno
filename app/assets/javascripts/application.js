@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require ckeditor/init
 
 $(document).ready(function() { 
   $('.bloque').on('click', 'a', function() { 

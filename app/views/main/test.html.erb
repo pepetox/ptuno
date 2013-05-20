@@ -77,6 +77,12 @@
                 </li>
                 </ul>
                 </div>
+                  <%= form.cktext_area :notes, :class => "someclass", :ckeditor => {:language => "uk"} %>
+  ...
+  <%= form.cktext_area :content, :value => "Default value", :id => "sometext" %>
+  ...
+  <%= cktext_area :page, :info, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "mini"} %>
+  <%= f.text_area :history %>
 
 
 

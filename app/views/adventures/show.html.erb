@@ -11,7 +11,7 @@
         <% end %>
       <p>
         <% if @adventure.imglink != "" %>
-           <%= image_tag @adventure.imglink, :size => "400x400" %> 
+           <%= image_tag @adventure.imglink, :size => "400x400", class: "img-rounded" %> 
         <% end %>
       </p>  
       <p>
@@ -37,7 +37,7 @@
               <% @adventure.characters.each do |char| %>
               <div class="bloque">
                 <li><a><%= char.name %></a></li>
-                <p class="contenido"><%= char.history.html_safe %></p>
+                <div class="contenido"><%= char.history.html_safe %></div>
               </div>
               <% end %>
           </ul>
@@ -66,7 +66,7 @@
               <% @adventure.chapters.each do |chapter| %>
                 <div class="bloque">  
                   <li ><h4><a><%= chapter.name %></a></li></h4>
-                  <p class="contenido"><%= chapter.body.html_safe %></p>
+                  <div class="contenido"><%= chapter.body.html_safe %></div>
                 </div>
               
             <% end %>
