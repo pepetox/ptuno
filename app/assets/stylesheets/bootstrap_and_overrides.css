@@ -8,3 +8,27 @@
   .navbar .container {
 	width: 1100px;
 	}
+  .contenido {
+    display: none;
+  }
+  .listado{
+    display: none;
+  }
+  h1{
+  	font-family: 'Love Ya Like A Sister', cursive;
+  	} 
+  h2{
+  	font-family: 'Love Ya Like A Sister', cursive;
+  	} 
+  h3{
+  	font-family: 'Love Ya Like A Sister', cursive;
+  	} 
+  a{
+  	font-family: 'Love Ya Like A Sister', cursive;
+  	} 
+  p{
+  	font-family: 'Love Ya Like A Sister', cursive;
+  	} 
+
+ 
+

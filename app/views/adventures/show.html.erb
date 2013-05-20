@@ -12,14 +12,12 @@
       <p>
         <% if @adventure.imglink != "" %>
            <%= image_tag @adventure.imglink, :size => "400x400" %> 
-        <% end %>        
-
+        <% end %>
       </p>  
       <p>
           <b>Ambientada en:  </b>
           <%= @adventure.system %>
       </p>
-
       <p>
           <b>Dirigida por:</b>
           <%= @adventure.mc %>
@@ -31,84 +29,53 @@
           <% else %>
              terminada 
           <% end %>
-      </p>        
-      <h3>Protagonizada por: </h3>
-        <div id"jugadores">
+      </p> 
+      <div class="seccion">       
+        <h3> <a> Protagonizada por: </a></h3>
+        <div class="listado">
           <ul>
               <% @adventure.characters.each do |char| %>
-                <li><b><%= link_to char.name, char %></b></li></p>   
+              <div class="bloque">
+                <li><a><%= char.name %></a></li>
+                <p class="contenido"><%= char.history.html_safe %></p>
+              </div>
               <% end %>
           </ul>
           <p><%= link_to 'Nuevo Jugador', new_adventure_character_path(@adventure) %></p>
-      </div>
-      <h3><%= link_to "Archivos de la aventura", adventure_docs_path(@adventure) %></h3>  
-      <ul>
-        <% @adventure.docs.each do |doc| %>
-          <li><b><%= link_to doc.name, doc %></b></li></p>               
-        <% end %>
-      </ul>    
-      <p><%= link_to 'Nuevo documento', new_adventure_doc_path(@adventure) %></p>      
-      <h3>Diario de la aventura</h3>
-      <ol>
-        <% @adventure.chapters.each do |chapter| %>
-          <li><h4><b><%= link_to chapter.name, chapter %></b></li></h4>
-          <p><%= chapter.body.html_safe %></p>
-      <% end %>
-      </ol> 
-
-      <%= link_to 'Volver', adventures_path %>
-      </div>
-      </div>
-    <div class="row-fluid">
-      <div class="span3">
-        <h3>Añade una entrada en el diario:</h3>
-        <%= form_for([@adventure, @adventure.chapters.build]) do |f| %>
-            <div class="field">
-              <%= f.label "Título" %><br />
-              <%= f.text_field :name %>
-            </div>
-            <div class="field">
-              <%= f.label "Contenido" %><br />
-              <%= f.text_area :body, :size => "5x10"  %>
-            </div>
-
-            <div class="field">
-              <%= f.label "Enlace a foto" %><br />
-              <%= f.text_field :imglink %>
-            </div>
-
-            <div class="actions">
-              <%= f.submit %>
-            </div>
-        <% end %>
-
-        <h3>Añade una personaje a la aventura :</h3>
-            <%= form_for([@adventure, @adventure.characters.build]) do |f| %>
-              <div class="field">
-                <%= f.label "Nombre" %><br />
-                <%= f.text_field :name %>
-              </div>
-              <div class="field">
-                <%= f.label "Historia" %><br />
-                <%= f.text_field :history %>
-              </div>
-              <div class="field">
-                <%= f.label "¿Es pj?" %>
-                <%= f.check_box :pj %>
-              </div>
-              <div class="field">
-                <%= f.label "¿Esta vivo?" %>
-                <%= f.check_box :alive %>
-              </div>
-              <div class="field">
-                <%= f.label "Enlace a foto" %><br />
-                <%= f.text_field :imglink %>
-              </div>
-              <div class="actions">
-                <%= f.submit %>
-              </div>
-            <% end %>
         </div>
       </div>
-    </div>
+      <div class="seccion"> 
+        <h3><a><%= "Archivos de la aventura" %></a></h3> 
+        <div class="listado"> 
+          <ul>
+            <% @adventure.docs.each do |doc| %>
+              <div class="bloque">
+                <li><a><%= doc.name %></a></li></p>  
+                <p class="contenido"><%= doc.name %></p>
+                <iframe class="contenido" width="900" height="720" src=<%= doc.gdoclink %></iframe>
+              </div>            
+            <% end %>
+          </ul>    
+          <p><%= link_to 'Nuevo documento', new_adventure_doc_path(@adventure) %></p>  
+        </div> 
+      </div>   
+      <div class="seccion">
+        <h3><a>Diario de la aventura</a></h3>
+          <div class="listado"> 
+            <ol>
+              <% @adventure.chapters.each do |chapter| %>
+                <div class="bloque">  
+                  <li ><h4><a><%= chapter.name %></a></li></h4>
+                  <p class="contenido"><%= chapter.body.html_safe %></p>
+                </div>
+              
+            <% end %>
+            </ol> 
+            <p><%= link_to 'Nuevo Capitulo', new_adventure_chapter_path(@adventure) %></p>
+          </div>
+        </div>
+        <%= link_to 'Volver', adventures_path %>
+      </div>
+      </div>
+    
 </div>
