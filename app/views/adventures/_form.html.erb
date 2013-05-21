@@ -22,6 +22,7 @@
   <div class="field">
     <%= f.label "Descripción" %><br />
     <%= f.text_area :description %>
+    <%= cktext_area :adventure, :description, :ckeditor => {:uiColor => "#dddddd", :toolbar => "mini"} %> 
   </div>
   <div class="field">
     <%= f.label "Master de la partida" %><br />

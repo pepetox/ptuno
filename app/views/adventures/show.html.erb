@@ -37,7 +37,9 @@
               <% @adventure.characters.each do |char| %>
               <div class="bloque">
                 <li><a><%= char.name %></a></li>
-                <div class="contenido"><%= char.history.html_safe %></div>
+                <div class="contenido"><%= char.history.html_safe %>
+                  <p><%= link_to 'Editar', edit_character_path(char) %></p>  
+                  </div>
               </div>
               <% end %>
           </ul>
@@ -50,9 +52,12 @@
           <ul>
             <% @adventure.docs.each do |doc| %>
               <div class="bloque">
-                <li><a><%= doc.name %></a></li></p>  
-                <p class="contenido"><%= doc.name %></p>
-                <iframe class="contenido" width="900" height="720" src=<%= doc.gdoclink %></iframe>
+                <li><a><%= doc.name %></a></li></p>
+                <div class="contenido">  
+                  <p><%= doc.name %></p>
+                  <iframe width="900" height="720" src=<%= doc.gdoclink %></iframe>
+                  <p><%= link_to 'Editar', edit_doc_path(doc) %></p>                  
+                </div>  
               </div>            
             <% end %>
           </ul>    
@@ -66,9 +71,11 @@
               <% @adventure.chapters.each do |chapter| %>
                 <div class="bloque">  
                   <li ><h4><a><%= chapter.name %></a></li></h4>
-                  <div class="contenido"><%= chapter.body.html_safe %></div>
-                </div>
-              
+                  <div class="contenido">
+                    <%= chapter.body.html_safe %>                  
+                    <p><%= link_to 'Editar', edit_chapter_path(chapter) %></p>
+                  </div>
+                </div>              
             <% end %>
             </ol> 
             <p><%= link_to 'Nuevo Capitulo', new_adventure_chapter_path(@adventure) %></p>

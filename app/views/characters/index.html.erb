@@ -23,9 +23,9 @@
     <td><%= character.alive %></td>
     <td><%= character.user_id %></td>
     <td><%= link_to 'Mostrar', character %></td>
-    <td><%= link_to 'Editar', edit_character_path(character) %></td>
     <% if current_user.try(:admin?)%>
-        <td><%= link_to 'Borrar', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_character_path(character) %></td>
+            <td><%= link_to 'Borrar', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
 <% end %>

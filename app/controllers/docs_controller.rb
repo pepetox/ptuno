@@ -1,7 +1,7 @@
 class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => :delete
   
   def create
       
